@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActRegistration">
+
+    <EditText
+        android:id="@+id/IdEditTxtAge"
+        android:layout_width="335dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="28dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="@string/HintAge"
+        app:layout_constraintBottom_toTopOf="@+id/IdEditTxtEmail"
+        app:layout_constraintStart_toStartOf="@+id/IdEditTxtFullName" />
+
+    <EditText
+        android:id="@+id/IdEditTxtEmail"
+        android:layout_width="335dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="28dp"
+        android:ems="10"
+        android:hint="@string/HintEmail"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/IdEditTextPassword"
+        app:layout_constraintStart_toStartOf="@+id/IdEditTxtAge" />
+
+    <EditText
+        android:id="@+id/IdEditTextPassword"
+        android:layout_width="335dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="28dp"
+        android:ems="10"
+        android:hint="@string/HintPassword"
+        android:inputType="numberPassword|textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/IdBtnRegisterUser"
+        app:layout_constraintStart_toStartOf="@+id/IdEditTxtEmail" />
+
+    <EditText
+        android:id="@+id/IdEditTxtFullName"
+        android:layout_width="335dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="28dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/HintFullName"
+        app:layout_constraintBottom_toTopOf="@+id/IdEditTxtAge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/IdBtnRegisterUser"
+        android:layout_width="335dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="120dp"
+        android:onClick="DoRegisterUser"
+        android:text="@string/TxtRegisterUser"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/IdEditTextPassword" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MatrimonialApp</string>
+    <string name="HintFullName">Full Name</string>
+    <string name="HintAge">Age</string>
+    <string name="HintEmail">Email Address</string>
+    <string name="HintPassword">Password</string>
+    <string name="LogIn">LOGIN</string>
+    <string name="Register">Register</string>
+    <string name="ForgetPassword">Forget Password!</string>
+    <string name="TxtRegisterUser">REGISTER USER</string>
+
+</resources>
