@@ -1,13 +1,23 @@
 package com.example.matrimonialapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaCodec;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.regex.Pattern;
 
@@ -15,6 +25,8 @@ public class ActRegistration extends AppCompatActivity {
 
     private EditText editTxtFullName, editTxtEmail, editTextAge, editTxtPassWord;
     private Button btnRegisterUser;
+
+    private FirebaseAuth mAuth;
 
 
 
@@ -31,6 +43,9 @@ public class ActRegistration extends AppCompatActivity {
         btnRegisterUser = findViewById(R.id.IdBtnRegisterUser);
 
 
+        mAuth = FirebaseAuth.getInstance();
+
+
     }
 
     public void DoRegisterUser(View view) {
@@ -38,15 +53,12 @@ public class ActRegistration extends AppCompatActivity {
         RegisterUser();
 
 
-
-
-
     }
 
     private void RegisterUser()
 
     {
-        String name,password,email,age;
+        final String name,password,email,age;
 
         Integer ageNumber;
 
@@ -116,9 +128,28 @@ public class ActRegistration extends AppCompatActivity {
 
 
 
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+
+                            FirebaseUser user = mAuth.getCurrentUser();
+
+                        } else {
+
+                            Toast.makeText(ActRegistration.this, "ok failed", Toast.LENGTH_SHORT).show();
+
+
+                        }
+
+                        // ...
+                    }
+                });
 
 
 
     }
 
 }
+

@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
+//    private FirebaseAuth mAuth;
 
     private TextView register,forgetPassword;
 
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogIn = findViewById(R.id.IdBtnLogIn);
 
 
-        mAuth = FirebaseAuth.getInstance();
+//        mAuth = FirebaseAuth.getInstance();
     }
 
     public void getTheClick(View view) {
