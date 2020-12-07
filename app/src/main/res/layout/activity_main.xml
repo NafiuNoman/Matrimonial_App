@@ -7,19 +7,19 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/IdEditTxtEmail"
+        android:id="@+id/IdEditTxtEmailLogIn"
         android:layout_width="335dp"
         android:layout_height="59dp"
         android:layout_marginBottom="28dp"
         android:ems="10"
         android:hint="@string/HintEmail"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/IdEditTxtPassword"
+        app:layout_constraintBottom_toTopOf="@+id/IdEditTxtPasswordLogIn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/IdEditTxtPassword"
+        android:id="@+id/IdEditTxtPasswordLogIn"
         android:layout_width="335dp"
         android:layout_height="59dp"
         android:layout_marginBottom="28dp"
@@ -27,7 +27,7 @@
         android:hint="@string/HintPassword"
         android:inputType="numberPassword"
         app:layout_constraintBottom_toTopOf="@+id/IdBtnLogIn"
-        app:layout_constraintStart_toStartOf="@+id/IdEditTxtEmail" />
+        app:layout_constraintStart_toStartOf="@+id/IdEditTxtEmailLogIn" />
 
     <Button
         android:id="@+id/IdBtnLogIn"
@@ -37,7 +37,7 @@
         android:onClick="getTheClick"
         android:text="@string/LogIn"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/IdEditTxtPassword" />
+        app:layout_constraintStart_toStartOf="@+id/IdEditTxtPasswordLogIn" />
 
     <TextView
         android:id="@+id/IdTxtRegistration"
@@ -60,4 +60,5 @@
         app:layout_constraintEnd_toStartOf="@+id/IdTxtRegistration"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

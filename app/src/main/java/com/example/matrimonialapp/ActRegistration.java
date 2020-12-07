@@ -3,10 +3,8 @@ package com.example.matrimonialapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.media.MediaCodec;
-import android.media.MediaPlayer;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -18,8 +16,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.util.regex.Pattern;
 
 public class ActRegistration extends AppCompatActivity {
 
@@ -35,9 +31,9 @@ public class ActRegistration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_act_registration);
 
-        editTxtFullName = findViewById(R.id.IdEditTxtFullName);
-        editTxtEmail = findViewById(R.id.IdEditTxtEmail);
-        editTextAge = findViewById(R.id.IdEditTxtAge);
+//        editTxtFullName = findViewById(R.id.IdEditTxtFullName);
+        editTxtEmail = findViewById(R.id.IdEditTxtEmailLogIn);
+//        editTextAge = findViewById(R.id.IdEditTxtAge);
         editTxtPassWord = findViewById(R.id.IdEditTextPassword);
 
         btnRegisterUser = findViewById(R.id.IdBtnRegisterUser);
@@ -62,21 +58,21 @@ public class ActRegistration extends AppCompatActivity {
 
         Integer ageNumber;
 
-        name = editTxtFullName.getText().toString().trim();
+//        name = editTxtFullName.getText().toString().trim();
         password = editTxtPassWord.getText().toString().trim();
         email = editTxtEmail.getText().toString().trim();
-        age = editTextAge.getText().toString().trim();
+//        age = editTextAge.getText().toString().trim();
 
-        ageNumber = Integer.valueOf(editTextAge.getText().toString().trim());
+//        ageNumber = Integer.valueOf(editTextAge.getText().toString().trim());
 
 
-        if(name.isEmpty())
-        {
-            editTxtFullName.setError("Full name is required");
-            editTxtFullName.requestFocus();
-
-            return;
-        }
+//        if(name.isEmpty())
+//        {
+//            editTxtFullName.setError("Full name is required");
+//            editTxtFullName.requestFocus();
+//
+//            return;
+//        }
 
         if(password.isEmpty())
         {
@@ -112,19 +108,19 @@ public class ActRegistration extends AppCompatActivity {
 
         }
 
-        if(age.isEmpty())
-        {
-            editTextAge.setError("Age is Required");
-            editTextAge.requestFocus();
-            return;
-        }
-        if(ageNumber < 20)
-
-        {
-            editTextAge.setError("Min Age is 20");
-            editTextAge.requestFocus();
-            return;
-        }
+//        if(age.isEmpty())
+//        {
+//            editTextAge.setError("Age is Required");
+//            editTextAge.requestFocus();
+//            return;
+//        }
+//        if(ageNumber < 20)
+//
+//        {
+//            editTextAge.setError("Min Age is 20");
+//            editTextAge.requestFocus();
+//            return;
+//        }
 
 
 
@@ -136,6 +132,8 @@ public class ActRegistration extends AppCompatActivity {
 
                             FirebaseUser user = mAuth.getCurrentUser();
 
+                            Toast.makeText(ActRegistration.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+
                         } else {
 
                             Toast.makeText(ActRegistration.this, "ok failed", Toast.LENGTH_SHORT).show();
@@ -143,9 +141,14 @@ public class ActRegistration extends AppCompatActivity {
 
                         }
 
-                        // ...
                     }
                 });
+
+
+        Intent intent = new Intent(ActRegistration.this,Act_InputUserDetails.class);
+
+       startActivity(intent);
+
 
 
 

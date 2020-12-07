@@ -5,6 +5,7 @@
     <string name="HintEmail">Email Address</string>
     <string name="HintPassword">Password</string>
     <string name="LogIn">LOGIN</string>
+    <string name="LogOut">LOGOUT</string>
     <string name="Register">Register</string>
     <string name="ForgetPassword">Forget Password!</string>
     <string name="TxtRegisterUser">REGISTER USER</string>
