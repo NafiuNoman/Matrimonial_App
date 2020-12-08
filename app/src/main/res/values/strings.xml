@@ -10,4 +10,21 @@
     <string name="ForgetPassword">Forget Password!</string>
     <string name="TxtRegisterUser">REGISTER USER</string>
 
+
+
+
+
+
+    <string-array name="Religions">
+
+        <item>Islam</item>
+        <item>Christianity</item>
+        <item> Buddhism</item>
+        <item>Hinduism</item>
+        <item>Judaism</item>
+        <item>Sikhism</item>
+
+
+    </string-array>
+
 </resources>
