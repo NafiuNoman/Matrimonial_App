@@ -1,104 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".Act_InputUserDetails">
 
-    <EditText
-        android:id="@+id/IdInputName"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/scroCon"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="34dp"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/IdInputAge"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:paddingBottom="100dp">
 
-    <EditText
-        android:id="@+id/IdInputAge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="center"
-        android:inputType="number"
-        android:hint="Age"
-        app:layout_constraintBottom_toTopOf="@+id/IdInputGender"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/IdInputGender"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:gravity="center"
-        android:inputType="textPersonName"
-        android:hint="gender"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IdInputAge" />
-
-    <Button
-        android:id="@+id/IdInputbtn"
-        android:layout_width="145dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="30dp"
-        android:onClick="sendToRealDatabase"
-        android:text="send"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.421"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IdInputGenderNew" />
-
-    <AutoCompleteTextView
-
-        android:id="@+id/IdInputReligion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:hint="religion"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IdInputGender" />
-
-    <com.google.android.material.textfield.TextInputLayout
-
-
-        android:id="@+id/IdInputGenderNew"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginRight="35dp"
-
-        app:boxStrokeColor="#213EDA"
-        app:helperText="*you know that"
-        app:helperTextEnabled="true"
-        app:helperTextTextColor="#A474FA"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IdInputReligion"
-        app:startIconDrawable="@drawable/ic_wc">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/IdInputCreator"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <AutoCompleteTextView
+                android:id="@+id/IdInputAutoCreator"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Create Profile For"
+                android:inputType="none" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+
+
+            android:id="@+id/IdInputName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="35dp"
+            app:boxStrokeColor="#213EDA"
+            app:helperText="*you know that"
+            app:helperTextEnabled="true"
+
+            app:helperTextTextColor="#A474FA"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IdInputCreator"
+            app:startIconDrawable="@drawable/ic_wc">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Full Name" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout6"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            android:layout_width="183dp"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/IdInputRadioGroupGender"
+            app:layout_constraintTop_toBottomOf="@+id/IdInputName">
+
+            <AutoCompleteTextView
+                android:id="@+id/IdInputAutoMaritalStatus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Marital Status" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <EditText
+            android:id="@+id/IdInputAge"
+            android:layout_width="83dp"
+            android:layout_height="31dp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Age"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IdInputReligion" />
+
+        <Button
+
+            android:id="@+id/IdInputbtn"
+            android:layout_width="130dp"
+            android:layout_height="62dp"
+            android:layout_marginEnd="52dp"
+            android:layout_marginRight="52dp"
+            android:onClick="sendToRealDatabase"
+            android:text="send"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <AutoCompleteTextView
+
+            android:id="@+id/IdInputReligion"
+            android:layout_width="117dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:hint="religion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IdInputRadioGroupGender" />
+
+        <RadioGroup
+
+            android:id="@+id/IdInputRadioGroupGender"
+            android:layout_width="120dp"
+            android:layout_height="103dp"
+            android:layout_marginTop="10dp"
+            android:checkedButton="@id/IdRadioButtonMale"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IdInputName">
+
+
+            <RadioButton
+                android:id="@+id/IdRadioButtonMale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="GenderClicked"
+                android:text="Male" />
+
+            <RadioButton
+                android:id="@+id/IdRadioButtonFemale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="GenderClicked"
+                android:text="Female" />
+        </RadioGroup>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="183dp"
             android:layout_height="51dp"
-            android:hint="Gender" />
-    </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintBottom_toTopOf="@+id/IdInputbtn"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout6"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="DOB"/>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

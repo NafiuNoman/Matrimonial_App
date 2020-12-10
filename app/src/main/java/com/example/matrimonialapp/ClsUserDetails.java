@@ -3,23 +3,16 @@ package com.example.matrimonialapp;
 public class ClsUserDetails {
 
 
-    String Name,Age,Gender,Religion,GenderNew;
+    String Name,Age,Gender,Religion;
 
-    public ClsUserDetails(String name, String age, String gender, String religion, String genderNew) {
+    public ClsUserDetails(String name, String age, String gender, String religion) {
         Name = name;
         Age = age;
         Gender = gender;
         Religion = religion;
-        GenderNew = genderNew;
     }
 
-    public String getGenderNew() {
-        return GenderNew;
-    }
 
-    public void setGenderNew(String genderNew) {
-        GenderNew = genderNew;
-    }
 
     public String getName() {
         return Name;
@@ -52,4 +45,6 @@ public class ClsUserDetails {
     public void setReligion(String religion) {
         Religion = religion;
     }
+
+
 }

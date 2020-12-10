@@ -27,4 +27,25 @@
 
     </string-array>
 
+
+    <string-array name="Creator">
+
+        <item>Self</item>
+        <item>Friend</item>
+        <item>Daughter</item>
+        <item>Son</item>
+        <item>Relative</item>
+    </string-array>
+
+    <string-array name="maritalStatus">
+        <item>Single</item>
+        <item>Married</item>
+        <item>Widowed</item>
+        <item>Divorced</item>
+
+
+
+
+    </string-array>
+
 </resources>

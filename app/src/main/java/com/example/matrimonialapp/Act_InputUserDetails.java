@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -16,11 +19,23 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Act_InputUserDetails extends AppCompatActivity {
 
 
-    EditText name,age,gender;
-    String sName,sAge,sGender,sReligion,sGenderNew;
+    TextInputLayout name,creator;
+
+    AutoCompleteTextView religion,autoCreator,autoMaritalStatus;
+
+    RadioGroup genderRadio;
+
+    EditText age;
+
+    Button btn;
+
+    String sName,sAge,sGender,sReligion;
     String[] religionNames;
-    AutoCompleteTextView religion;
-    TextInputLayout genderNew;
+    String[] creatorsName;
+    String[] maritalStatus;
+
+
+
 
 
     @Override
@@ -29,18 +44,28 @@ public class Act_InputUserDetails extends AppCompatActivity {
         setContentView(R.layout.act__input_user_details);
 
         name = findViewById(R.id.IdInputName);
-        age = findViewById(R.id.IdInputAge);
-        gender = findViewById(R.id.IdInputGender);
-        religion = findViewById(R.id.IdInputReligion);
+        creator = findViewById(R.id.IdInputCreator);
 
-        genderNew = findViewById(R.id.IdInputGenderNew);
+        autoCreator = findViewById(R.id.IdInputAutoCreator);
+        autoMaritalStatus = findViewById(R.id.IdInputAutoMaritalStatus);
+        age = findViewById(R.id.IdInputAge);
+        religion = findViewById(R.id.IdInputReligion);
+        genderRadio = findViewById(R.id.IdInputRadioGroupGender);
+
+        btn  = findViewById(R.id.IdInputbtn);
 
 
         religionNames = getResources().getStringArray(R.array.Religions);
+        creatorsName = getResources().getStringArray(R.array.Creator);
+        maritalStatus = getResources().getStringArray(R.array.maritalStatus);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,religionNames);
+        ArrayAdapter<String> religionAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,religionNames);
+        ArrayAdapter<String> creatorAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,creatorsName);
+        ArrayAdapter<String> maritalAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,maritalStatus);
 
-        religion.setAdapter(adapter);
+        religion.setAdapter(religionAdapter);
+        autoCreator.setAdapter(creatorAdapter);
+        autoMaritalStatus.setAdapter(maritalAdapter);
 
 
     }
@@ -49,18 +74,17 @@ public class Act_InputUserDetails extends AppCompatActivity {
         
         
         
-        sName = name.getText().toString().trim();
-        sGender = gender.getText().toString().trim();
-        sGenderNew = genderNew.getEditText().getText().toString().trim();
+
+        sName = name.getEditText().getText().toString().trim();
+
         sAge = age.getText().toString().trim();
         sReligion =religion.getText().toString().trim();
 
         
-        ClsUserDetails clsUserDetails = new ClsUserDetails(sName,sAge,sGender,sReligion,sGenderNew);
+        ClsUserDetails clsUserDetails = new ClsUserDetails(sName,sAge,sGender,sReligion);
         
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("student");
-
         reference.child(sAge).setValue(clsUserDetails);
 
         Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
@@ -68,6 +92,24 @@ public class Act_InputUserDetails extends AppCompatActivity {
 
 
 
+
+
+    }
+
+    public void GenderClicked(View view) {
+
+
+        switch (view.getId())
+        {
+            case R.id.IdRadioButtonMale:
+                sGender = "Male";
+
+            case R.id.IdRadioButtonFemale:
+                sGender="Female";
+            default:
+                Toast.makeText(this, "Male", Toast.LENGTH_SHORT).show();
+
+        }
 
 
     }
