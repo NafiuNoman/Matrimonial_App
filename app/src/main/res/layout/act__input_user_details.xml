@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".Act_InputUserDetails">
 
 
@@ -12,8 +11,7 @@
         android:id="@+id/scroCon"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
-        android:paddingBottom="100dp">
+        android:padding="10dp">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/IdInputCreator"
@@ -51,7 +49,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/IdInputCreator"
-            app:startIconDrawable="@drawable/ic_wc">
+            app:startIconDrawable="@drawable/ic_wc"
+
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -66,54 +66,41 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
             android:layout_width="183dp"
             android:layout_height="match_parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/IdInputRadioGroupGender"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/IdInputName">
 
             <AutoCompleteTextView
                 android:id="@+id/IdInputAutoMaritalStatus"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Marital Status" />
+                android:hint="Marital Status"
+                android:inputType="none" />
 
 
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <EditText
-            android:id="@+id/IdInputAge"
-            android:layout_width="83dp"
-            android:layout_height="31dp"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Age"
-            android:inputType="number"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/IdInputReligion" />
-
-        <Button
-
-            android:id="@+id/IdInputbtn"
-            android:layout_width="130dp"
-            android:layout_height="62dp"
-            android:layout_marginEnd="52dp"
-            android:layout_marginRight="52dp"
-            android:onClick="sendToRealDatabase"
-            android:text="send"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <AutoCompleteTextView
-
-            android:id="@+id/IdInputReligion"
-            android:layout_width="117dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout2"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            android:layout_width="183dp"
             android:layout_height="50dp"
-            android:layout_marginTop="24dp"
-            android:gravity="center"
-            android:hint="religion"
+            android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/IdInputRadioGroupGender" />
+            app:layout_constraintTop_toBottomOf="@+id/IdInputDOB">
+
+
+            <AutoCompleteTextView
+
+                android:id="@+id/IdInputReligion"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Religion"
+                android:inputType="none" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <RadioGroup
 
@@ -122,7 +109,7 @@
             android:layout_height="103dp"
             android:layout_marginTop="10dp"
             android:checkedButton="@id/IdRadioButtonMale"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/IdInputName">
 
 
@@ -142,20 +129,186 @@
         </RadioGroup>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/IdInputDOB"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="183dp"
             android:layout_height="51dp"
-            app:layout_constraintBottom_toTopOf="@+id/IdInputbtn"
+            android:hint="Date Of Birth"
             app:layout_constraintStart_toStartOf="@+id/textInputLayout6"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
 
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/IdInputDobInput"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="DOB"/>
+                android:hint="DOB"
+                android:inputType="none"
+                android:onClick="ClickedDateOfBirth" />
 
 
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout4"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            android:layout_width="183dp"
+            android:layout_height="51dp"
+            app:layout_constraintBottom_toTopOf="@+id/textInputLayout5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+
+            <AutoCompleteTextView
+                android:id="@+id/IdInputHeight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Height"
+                android:inputType="none" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout3"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            android:layout_width="183dp"
+            android:layout_height="51dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textInputLayout2">
+
+            <AutoCompleteTextView
+                android:id="@+id/IdInputPhysicalStatus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Physical Status"
+                android:inputType="none"
+
+                />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout10"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            android:layout_width="183dp"
+            android:layout_height="51dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textInputLayout4"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <AutoCompleteTextView
+                android:id="@+id/IdInputLiving"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Living with" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout5"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="183dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Monthly Income"
+
+
+                android:inputType="number" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout7"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            android:layout_width="183dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout11">
+
+
+            <AutoCompleteTextView
+                android:id="@+id/IdInputWorking"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+
+                android:hint="Working With" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/IdInputAge"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="183dp"
+            android:layout_height="51dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textInputLayout5">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Age"
+                android:inputType="number" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/IdInputBtn"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="183dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="20dp"
+            android:text="Save"
+            app:icon="@drawable/ic_save"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout7" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout9"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/IdInputPermanentAddress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Permanent Address" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:id="@+id/textInputLayout11"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout9">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/IdInputCurrentAddress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Current Address" />
         </com.google.android.material.textfield.TextInputLayout>
 
 

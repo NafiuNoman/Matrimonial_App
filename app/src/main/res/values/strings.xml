@@ -42,10 +42,31 @@
         <item>Married</item>
         <item>Widowed</item>
         <item>Divorced</item>
+    </string-array>
+
+
+
+    <string-array name="physicalCondition">
+        <item>Normal</item>
+        <item>Physically Challenged</item>
+    </string-array>
 
 
 
 
+    <string-array name="workStatus">
+
+        <item>Private Company</item>
+        <item>Government / Public Sector</item>
+        <item>Defense / Civil Service</item>
+        <item>Business / Self Employed</item>
+        <item>Not Working</item>
+    </string-array>
+
+    <string-array name="livingStatus">
+
+        <item>Family</item>
+        <item>Alone</item>
     </string-array>
 
 </resources>
