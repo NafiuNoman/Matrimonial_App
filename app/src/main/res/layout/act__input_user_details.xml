@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/scroCon"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="10dp">
 
         <com.google.android.material.textfield.TextInputLayout
@@ -152,14 +152,14 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout4"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="183dp"
             android:layout_height="51dp"
             app:layout_constraintBottom_toTopOf="@+id/textInputLayout5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
-            <AutoCompleteTextView
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/IdInputHeight"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -216,6 +216,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/IdInputIncome"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Monthly Income"
@@ -272,6 +273,7 @@
             android:layout_height="51dp"
             android:layout_marginTop="20dp"
             android:text="Save"
+            android:onClick="sendToRealDatabase"
             app:icon="@drawable/ic_save"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout7" />
