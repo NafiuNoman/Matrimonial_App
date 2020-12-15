@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/IdMyName"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:gravity="center"
+        android:hint="name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/IdMyAge"
+        android:layout_width="135dp"
+        android:layout_height="42dp"
+        android:gravity="center"
+        android:hint="age"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IdMyName" />
+
+    <TextView
+        android:id="@+id/IdMySalary"
+        android:layout_width="136dp"
+        android:layout_height="42dp"
+        android:gravity="center"
+        android:hint="Salary"
+        app:layout_constraintBottom_toBottomOf="@+id/IdMyAge"
+        app:layout_constraintStart_toEndOf="@+id/IdMyAge" />
+
+    <TextView
+        android:id="@+id/IdMyGender"
+        android:layout_width="136dp"
+        android:layout_height="42dp"
+        android:gravity="center"
+        android:hint="Gender"
+        app:layout_constraintBottom_toBottomOf="@+id/IdMySalary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/IdMySalary" />
+</androidx.constraintlayout.widget.ConstraintLayout>

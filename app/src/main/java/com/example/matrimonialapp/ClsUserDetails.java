@@ -6,6 +6,10 @@ String creator,name,gender,age,dateOfBirth,maritalStatus,
         religion,height,physicalStatus,livingStatus,income,
         pAddress,cAddress,workingStatus;
 
+
+    public ClsUserDetails() {
+    }
+
     public ClsUserDetails(String creator, String name, String gender, String age, String dateOfBirth, String maritalStatus, String religion, String height, String physicalStatus, String livingStatus, String income, String pAddress, String cAddress, String workingStatus) {
         this.creator = creator;
         this.name = name;

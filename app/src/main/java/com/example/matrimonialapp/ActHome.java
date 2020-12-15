@@ -1,46 +1,65 @@
 package com.example.matrimonialapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ActHome extends AppCompatActivity {
 
-    TextView textView;
-    FirebaseAuth mAuth;
+
+    RecyclerView recyclerView;
+    ClsCandidateRecylcerAdapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_act_home);
 
-        textView = findViewById(R.id.textView);
-
-        mAuth = FirebaseAuth.getInstance();
+        recyclerView = findViewById(R.id.IdRecycler);
 
 
-        String i= getIntent().getStringExtra("email");
-        String y= getIntent().getStringExtra("name");
+        FirebaseRecyclerOptions<ClsUserDetails> options =
+                new FirebaseRecyclerOptions.Builder<ClsUserDetails>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference("student"), ClsUserDetails.class)
+                        .build();
 
 
 
-        textView.setText(i+""+y);
+            myAdapter = new ClsCandidateRecylcerAdapter(options);
+            recyclerView.setAdapter(myAdapter);
+
+        Log.d( "Adapter","inside on create of firebaseOption");
+
+
+
+
 
     }
 
-    public void clickedLogOut(View view) {
+    @Override
+    protected void onStart() {
+        super.onStart();
+        myAdapter.startListening();
 
+        Log.d( "Adapter","inside onStart");
 
-        mAuth.signOut();
-        Intent intent = new Intent(ActHome.this,MainActivity.class);
-        startActivity(intent);
+    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        myAdapter.stopListening();
 
+        Log.d( "Adapter","inside onStop");
 
     }
 }

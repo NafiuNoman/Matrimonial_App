@@ -3,6 +3,7 @@ package com.example.matrimonialapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.view.View;
@@ -133,6 +134,11 @@ public class Act_InputUserDetails extends AppCompatActivity {
 
         Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
 
+        Intent intent = new Intent(Act_InputUserDetails.this,ActHome.class);
+
+        startActivity(intent);
+
+        Toast.makeText(this, "now it will show recyclerview", Toast.LENGTH_SHORT).show();
 
     }
 

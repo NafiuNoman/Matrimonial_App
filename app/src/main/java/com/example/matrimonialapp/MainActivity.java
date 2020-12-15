@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText email,password;
 
-    private Button btnLogIn;
+    private Button btnLogIn,view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.IdEditTxtPasswordLogIn);
 
         btnLogIn = findViewById(R.id.IdBtnLogIn);
+        view = findViewById(R.id.IdBtnShow);
 
 
 
@@ -103,6 +104,12 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-
  }
+
+    public void ViewRecycler(View view) {
+
+        Intent intent = new Intent(MainActivity.this,ActHome.class);
+        startActivity(intent);
+
+    }
 }
