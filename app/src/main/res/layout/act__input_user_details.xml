@@ -271,12 +271,12 @@
             style="@style/Widget.MaterialComponents.Button.Icon"
             android:layout_width="183dp"
             android:layout_height="51dp"
-            android:layout_marginTop="20dp"
-            android:text="Save"
             android:onClick="sendToRealDatabase"
+            android:text="Save"
             app:icon="@drawable/ic_save"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout7" />
+            app:layout_constraintTop_toBottomOf="@+id/IdInputBrowsePic" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout9"
@@ -312,6 +312,27 @@
                 android:layout_height="match_parent"
                 android:hint="Current Address" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/IdInputImage"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            android:onClick="ImageViewClicked"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <Button
+            android:id="@+id/IdInputBrowsePic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Browse"
+            android:onClick="SendToStorage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IdInputImage" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

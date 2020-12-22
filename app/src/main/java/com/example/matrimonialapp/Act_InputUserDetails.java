@@ -1,30 +1,55 @@
 package com.example.matrimonialapp;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.icu.util.Calendar;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
+
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 public class Act_InputUserDetails extends AppCompatActivity {
 
 
+    Uri filePath;
+    Bitmap bitmap;
+    String key,picUrl;
+
     TextInputLayout name, creator, dob, age;
 
-    TextInputEditText dobInput,height,income,cAddress,pAddress;
+    ImageView profilePic;
+
+    TextInputEditText dobInput, height, income, cAddress, pAddress;
 
 
     AutoCompleteTextView
@@ -38,7 +63,7 @@ public class Act_InputUserDetails extends AppCompatActivity {
     RadioGroup genderRadio;
 
 
-    Button btn;
+    Button btn,browsBtn;
 
     String sCreator, sName, sAge, sGender, sDob, sMaritalStatus, sReligion, sHeight,
             sPhysicalStatus, sLivingStatus, sIncome, sPaddress, sCaddress, sWorkingStatus;
@@ -52,6 +77,7 @@ public class Act_InputUserDetails extends AppCompatActivity {
 
     Calendar calendar;
     DatePickerDialog datePickerDialog;
+    DatabaseReference reference;
 
 
     @Override
@@ -59,6 +85,8 @@ public class Act_InputUserDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act__input_user_details);
 
+        profilePic = findViewById(R.id.IdInputImage);
+        browsBtn = findViewById(R.id.IdInputBrowsePic);
         name = findViewById(R.id.IdInputName);
         creator = findViewById(R.id.IdInputCreator);
         dob = findViewById(R.id.IdInputDOB);
@@ -104,6 +132,10 @@ public class Act_InputUserDetails extends AppCompatActivity {
         autoPhysicalStatus.setAdapter(physicalAdapter);
 
 
+         reference = FirebaseDatabase.getInstance().getReference("student");
+         key = reference.push().getKey();
+
+
     }
 
     public void sendToRealDatabase(View view) {
@@ -126,15 +158,16 @@ public class Act_InputUserDetails extends AppCompatActivity {
 
 
         ClsUserDetails clsUserDetails = new ClsUserDetails(sCreator, sName, sGender, sAge, sDob, sMaritalStatus, sReligion,
-                sHeight, sPhysicalStatus, sLivingStatus, sIncome, sPaddress, sCaddress, sWorkingStatus);
+                sHeight, sPhysicalStatus, sLivingStatus, sIncome, sPaddress, sCaddress, sWorkingStatus,picUrl);
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference("student");
-        reference.child(sAge).setValue(clsUserDetails);
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        DatabaseReference reference = database.getReference("student");
+//         key = reference.push().getKey();
+        reference.child(key).setValue(clsUserDetails);
 
         Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
 
-        Intent intent = new Intent(Act_InputUserDetails.this,ActHome.class);
+        Intent intent = new Intent(Act_InputUserDetails.this, ActHome.class);
 
         startActivity(intent);
 
@@ -176,6 +209,97 @@ public class Act_InputUserDetails extends AppCompatActivity {
         }, day, month, year);
 
         datePickerDialog.show();
+
+
+    }
+
+    public void ImageViewClicked(View view) {
+
+        Dexter.withContext(Act_InputUserDetails.this)
+                .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                .withListener(new PermissionListener() {
+                    @Override
+                    public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
+
+                        Intent intent = new Intent(Intent.ACTION_PICK);
+                        intent.setType("image/*");
+
+                        startActivityForResult(Intent.createChooser(intent, "please select the app"), 1);
+
+                    }
+
+                    @Override
+                    public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
+
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
+
+                    }
+                })
+                .check();
+
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            filePath = data.getData();
+
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(filePath);
+                bitmap = BitmapFactory.decodeStream(inputStream);
+
+                profilePic.setImageBitmap(bitmap);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    public void SendToStorage(View view) {
+
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+         final StorageReference uploder =  storage.getReference().child("user"+key);
+
+
+        uploder.putFile(filePath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+
+              uploder.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                  @Override
+                  public void onSuccess(Uri uri) {
+                      picUrl = uri.toString();
+                  }
+              });
+
+                ////////////
+
+//         picUrl  = String.valueOf(uploder.getDownloadUrl());
+//
+//          Log.d("url",""+picUrl);
+
+          //////
+//                HashMap<String,String> hashMap = new HashMap<>();
+//                hashMap.put(picUrl, String.valueOf(uploder.getDownloadUrl()));
+//
+//                Log.d("link...","!!!"+picUrl);
+
+
+
+                Toast.makeText(Act_InputUserDetails.this, "Purl Send", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
 
 
     }

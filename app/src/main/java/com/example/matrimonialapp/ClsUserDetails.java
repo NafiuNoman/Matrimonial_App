@@ -4,13 +4,13 @@ public class ClsUserDetails {
 
 String creator,name,gender,age,dateOfBirth,maritalStatus,
         religion,height,physicalStatus,livingStatus,income,
-        pAddress,cAddress,workingStatus;
+        pAddress,cAddress,workingStatus,pictureUrl;
 
 
     public ClsUserDetails() {
     }
 
-    public ClsUserDetails(String creator, String name, String gender, String age, String dateOfBirth, String maritalStatus, String religion, String height, String physicalStatus, String livingStatus, String income, String pAddress, String cAddress, String workingStatus) {
+    public ClsUserDetails(String creator, String name, String gender, String age, String dateOfBirth, String maritalStatus, String religion, String height, String physicalStatus, String livingStatus, String income, String pAddress, String cAddress, String workingStatus,String pictureUrl) {
         this.creator = creator;
         this.name = name;
         this.gender = gender;
@@ -25,6 +25,7 @@ String creator,name,gender,age,dateOfBirth,maritalStatus,
         this.pAddress = pAddress;
         this.cAddress = cAddress;
         this.workingStatus = workingStatus;
+        this.pictureUrl = pictureUrl;
     }
 
     public String getCreator() {
@@ -137,5 +138,13 @@ String creator,name,gender,age,dateOfBirth,maritalStatus,
 
     public void setWorkingStatus(String workingStatus) {
         this.workingStatus = workingStatus;
+    }
+
+    public String getPictureUrl() {
+        return pictureUrl;
+    }
+
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
     }
 }
