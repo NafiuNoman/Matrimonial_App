@@ -1,46 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="10dp"
+    android:elevation="10dp"
+    app:cardBackgroundColor="#0529EF"
+    >
 
 
-    <TextView
-        android:id="@+id/IdMyName"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:gravity="center"
-        android:hint="name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/IdConstrainMyROw"
 
-    <TextView
-        android:id="@+id/IdMyAge"
-        android:layout_width="135dp"
-        android:layout_height="42dp"
-        android:gravity="center"
-        android:hint="age"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IdMyName" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
 
-    <TextView
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/IdMyPropic"
+            android:layout_width="94dp"
+            android:layout_height="108dp"
+            android:src="@drawable/propic"
+            app:civ_border_color="#56AEF4"
+            app:civ_border_width="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/IdMyName"
+            android:layout_width="296dp"
+            android:layout_height="51dp"
+            android:gravity="center"
+            android:text="Jenifer Lawlernce"
+            android:textColor="#fff"
+            android:textSize="30sp"
+            app:layout_constraintStart_toEndOf="@+id/IdMyPropic"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/IdMyAge"
+            android:layout_width="147dp"
+            android:layout_height="42dp"
+            android:gravity="center"
+            android:text="26"
+            android:textColor="#fff"
+            android:textSize="30sp"
+            app:layout_constraintStart_toEndOf="@+id/IdMyPropic"
+            app:layout_constraintTop_toBottomOf="@+id/IdMyName" />
+
+        <!--- <TextView
         android:id="@+id/IdMySalary"
         android:layout_width="136dp"
         android:layout_height="42dp"
         android:gravity="center"
         android:hint="Salary"
-        app:layout_constraintBottom_toBottomOf="@+id/IdMyAge"
-        app:layout_constraintStart_toEndOf="@+id/IdMyAge" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="135dp" />
+        -->
 
-    <TextView
-        android:id="@+id/IdMyGender"
-        android:layout_width="136dp"
-        android:layout_height="42dp"
-        android:gravity="center"
-        android:hint="Gender"
-        app:layout_constraintBottom_toBottomOf="@+id/IdMySalary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/IdMySalary" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/IdMyReligion"
+            android:layout_width="148dp"
+            android:layout_height="42dp"
+            android:gravity="center_vertical"
+            android:text="Christian"
+            android:textColor="#fff"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@+id/IdMyAge"
+            app:layout_constraintStart_toEndOf="@+id/IdMyAge"
+            app:layout_constraintTop_toBottomOf="@+id/IdMyName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
