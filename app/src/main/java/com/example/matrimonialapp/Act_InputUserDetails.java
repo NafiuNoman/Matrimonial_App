@@ -38,6 +38,8 @@ import com.karumi.dexter.listener.single.PermissionListener;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class Act_InputUserDetails extends AppCompatActivity {
 
 
@@ -47,7 +49,7 @@ public class Act_InputUserDetails extends AppCompatActivity {
 
     TextInputLayout name, creator, dob, age;
 
-    ImageView profilePic;
+    CircleImageView profilePic;
 
     TextInputEditText dobInput, height, income, cAddress, pAddress;
 
@@ -76,7 +78,7 @@ public class Act_InputUserDetails extends AppCompatActivity {
 
 
     Calendar calendar;
-    DatePickerDialog datePickerDialog;
+//    DatePickerDialog datePickerDialog;
     DatabaseReference reference;
 
 
@@ -89,9 +91,9 @@ public class Act_InputUserDetails extends AppCompatActivity {
         browsBtn = findViewById(R.id.IdInputBrowsePic);
         name = findViewById(R.id.IdInputName);
         creator = findViewById(R.id.IdInputCreator);
-        dob = findViewById(R.id.IdInputDOB);
+//        dob = findViewById(R.id.IdInputDOB);
         height = findViewById(R.id.IdInputHeight);
-        dobInput = findViewById(R.id.IdInputDobInput);
+//        dobInput = findViewById(R.id.IdInputDobInput);
         income = findViewById(R.id.IdInputIncome);
         cAddress = findViewById(R.id.IdInputCurrentAddress);
         pAddress = findViewById(R.id.IdInputPermanentAddress);
@@ -145,7 +147,7 @@ public class Act_InputUserDetails extends AppCompatActivity {
         sName = name.getEditText().getText().toString().trim();
         sAge = age.getEditText().getText().toString().trim();
         sReligion = autoReligion.getText().toString().trim();
-        sDob = dobInput.getText().toString().trim();
+//        sDob = dobInput.getText().toString().trim();
         sMaritalStatus = autoMaritalStatus.getText().toString().trim();
         sReligion = autoReligion.getText().toString().trim();
         sHeight = height.getText().toString().trim();
@@ -157,12 +159,13 @@ public class Act_InputUserDetails extends AppCompatActivity {
         sWorkingStatus = autoWorkingStatus.getText().toString().trim();
 
 
-        ClsUserDetails clsUserDetails = new ClsUserDetails(sCreator, sName, sGender, sAge, sDob, sMaritalStatus, sReligion,
+        ClsUserDetails clsUserDetails = new ClsUserDetails(sCreator, sName, sGender, sAge,sMaritalStatus, sReligion,
                 sHeight, sPhysicalStatus, sLivingStatus, sIncome, sPaddress, sCaddress, sWorkingStatus,picUrl);
 
 //        FirebaseDatabase database = FirebaseDatabase.getInstance();
 //        DatabaseReference reference = database.getReference("student");
 //         key = reference.push().getKey();
+
         reference.child(key).setValue(clsUserDetails);
 
         Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
@@ -192,26 +195,26 @@ public class Act_InputUserDetails extends AppCompatActivity {
 
     }
 
-    public void ClickedDateOfBirth(View view) {
-
-        calendar = Calendar.getInstance();
-
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-        int month = calendar.get(Calendar.MONTH);
-        int year = calendar.get(Calendar.YEAR);
-
-        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int iYear, int iMonth, int iDay) {
-
-                dobInput.setText("" + iDay + "/" + (iMonth + 1) + "/" + iYear);
-            }
-        }, day, month, year);
-
-        datePickerDialog.show();
-
-
-    }
+//    public void ClickedDateOfBirth(View view) {
+//
+//        calendar = Calendar.getInstance();
+//
+//        int day = calendar.get(Calendar.DAY_OF_MONTH);
+//        int month = calendar.get(Calendar.MONTH);
+//        int year = calendar.get(Calendar.YEAR);
+//
+//        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+//            @Override
+//            public void onDateSet(DatePicker datePicker, int iYear, int iMonth, int iDay) {
+//
+//                dobInput.setText("" + iDay + "/" + (iMonth + 1) + "/" + iYear);
+//            }
+//        }, day, month, year);
+//
+//        datePickerDialog.show();
+//
+//
+//    }
 
     public void ImageViewClicked(View view) {
 

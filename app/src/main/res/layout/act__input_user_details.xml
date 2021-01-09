@@ -83,11 +83,11 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout2"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-            android:layout_width="183dp"
+            android:layout_width="160dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/IdInputDOB">
+            app:layout_constraintTop_toBottomOf="@+id/IdInputAge">
 
 
             <AutoCompleteTextView
@@ -128,32 +128,11 @@
                 android:text="Female" />
         </RadioGroup>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/IdInputDOB"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-            android:layout_width="183dp"
-            android:layout_height="51dp"
-            android:hint="Date Of Birth"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout6"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
-
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/IdInputDobInput"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="DOB"
-                android:inputType="none"
-                android:onClick="ClickedDateOfBirth" />
-
-
-        </com.google.android.material.textfield.TextInputLayout>
-
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout4"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-            android:layout_width="183dp"
+            android:layout_width="160dp"
             android:layout_height="51dp"
             app:layout_constraintBottom_toTopOf="@+id/textInputLayout5"
             app:layout_constraintStart_toStartOf="parent"
@@ -172,7 +151,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout3"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-            android:layout_width="183dp"
+            android:layout_width="160dp"
             android:layout_height="51dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textInputLayout2">
@@ -192,7 +171,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout10"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-            android:layout_width="183dp"
+            android:layout_width="160dp"
             android:layout_height="51dp"
             app:layout_constraintBottom_toBottomOf="@+id/textInputLayout4"
             app:layout_constraintEnd_toEndOf="parent">
@@ -209,7 +188,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout5"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-            android:layout_width="183dp"
+            android:layout_width="160dp"
             android:layout_height="51dp"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -229,11 +208,11 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout7"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-            android:layout_width="183dp"
+            android:layout_width="160dp"
             android:layout_height="51dp"
             android:layout_marginTop="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout11">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout10">
 
 
             <AutoCompleteTextView
@@ -253,8 +232,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="183dp"
             android:layout_height="51dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textInputLayout5">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -313,16 +292,18 @@
                 android:hint="Current Address" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/IdInputImage"
             android:layout_width="300dp"
             android:layout_height="200dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:onClick="ImageViewClicked"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout11"
+            android:src="@drawable/ic_user"
+            app:civ_border_width="3dp"
+            app:civ_border_color="#F44336"/>
 
         <Button
             android:id="@+id/IdInputBrowsePic"

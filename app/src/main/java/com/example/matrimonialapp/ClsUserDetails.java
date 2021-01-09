@@ -10,12 +10,12 @@ String creator,name,gender,age,dateOfBirth,maritalStatus,
     public ClsUserDetails() {
     }
 
-    public ClsUserDetails(String creator, String name, String gender, String age, String dateOfBirth, String maritalStatus, String religion, String height, String physicalStatus, String livingStatus, String income, String pAddress, String cAddress, String workingStatus,String pictureUrl) {
+    public ClsUserDetails(String creator, String name, String gender, String age, String maritalStatus, String religion, String height, String physicalStatus, String livingStatus, String income, String pAddress, String cAddress, String workingStatus,String pictureUrl) {
         this.creator = creator;
         this.name = name;
         this.gender = gender;
         this.age = age;
-        this.dateOfBirth = dateOfBirth;
+//        this.dateOfBirth = dateOfBirth;
         this.maritalStatus = maritalStatus;
         this.religion = religion;
         this.height = height;

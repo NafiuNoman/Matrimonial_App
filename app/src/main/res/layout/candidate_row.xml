@@ -1,79 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/IdConstrainMyROw"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardUseCompatPadding="true"
-    app:cardCornerRadius="10dp"
-    android:elevation="10dp"
-    app:cardBackgroundColor="#0529EF"
-    >
+    android:background="#1A0F1E"
+    android:padding="5dp">
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/IdConstrainMyROw"
-
+    <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
-
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/IdMyPropic"
-            android:layout_width="94dp"
-            android:layout_height="108dp"
-            android:src="@drawable/propic"
-            app:civ_border_color="#56AEF4"
-            app:civ_border_width="3dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <TextView
-            android:id="@+id/IdMyName"
-            android:layout_width="296dp"
-            android:layout_height="51dp"
-            android:gravity="center"
-            android:text="Jenifer Lawlernce"
-            android:textColor="#fff"
-            android:textSize="30sp"
-            app:layout_constraintStart_toEndOf="@+id/IdMyPropic"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/IdMyAge"
-            android:layout_width="147dp"
-            android:layout_height="42dp"
-            android:gravity="center"
-            android:text="26"
-            android:textColor="#fff"
-            android:textSize="30sp"
-            app:layout_constraintStart_toEndOf="@+id/IdMyPropic"
-            app:layout_constraintTop_toBottomOf="@+id/IdMyName" />
-
-        <!--- <TextView
-        android:id="@+id/IdMySalary"
-        android:layout_width="136dp"
-        android:layout_height="42dp"
-        android:gravity="center"
-        android:hint="Salary"
+        android:layout_height="match_parent"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="5dp"
+        app:cardBackgroundColor="#0529EF"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="135dp" />
-        -->
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/IdMyReligion"
-            android:layout_width="148dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="344dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:layout_editor_absoluteX="1dp">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/IdMyPropic"
+                android:layout_width="94dp"
+                android:layout_height="108dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/propic"
+                app:civ_border_color="#56AEF4"
+                app:civ_border_width="3dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/IdMyName"
+                android:layout_width="232dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="10dp"
+                android:gravity="center|start"
+                android:text="Jenifer Lawlernce"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/IdMyPropic"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="10dp"
+                android:text="Age:"
+                android:textColor="#fff"
+                android:textSize="8dp"
+                app:layout_constraintStart_toEndOf="@+id/IdMyPropic"
+                app:layout_constraintTop_toBottomOf="@+id/IdMyName" />
+
+            <TextView
+                android:id="@+id/IdMyAge"
+                android:layout_width="68dp"
+                android:layout_height="41dp"
+                android:gravity="center|start"
+                android:text="26"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <!--- <TextView
+            android:id="@+id/IdMySalary"
+            android:layout_width="136dp"
             android:layout_height="42dp"
-            android:gravity="center_vertical"
-            android:text="Christian"
-            android:textColor="#fff"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="@+id/IdMyAge"
-            app:layout_constraintStart_toEndOf="@+id/IdMyAge"
-            app:layout_constraintTop_toBottomOf="@+id/IdMyName" />
+            android:gravity="center"
+            android:hint="Salary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="135dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+         -->
 
-</androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Religion"
+                android:textColor="#fff"
+                android:textSize="8dp"
+                app:layout_constraintStart_toEndOf="@+id/IdMyAge"
+                app:layout_constraintTop_toBottomOf="@+id/IdMyName" />
+
+            <TextView
+                android:id="@+id/IdMyReligion"
+                android:layout_width="wrap_content"
+                android:layout_height="41dp"
+                android:gravity="center|start|center_vertical"
+                android:text="Christian"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/IdMyAge"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
