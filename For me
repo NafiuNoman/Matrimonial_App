@@ -1,0 +1,4 @@
+********
+How to change vector image color?
+
+--> vectorImage.setColorFilter(Color.RED);
