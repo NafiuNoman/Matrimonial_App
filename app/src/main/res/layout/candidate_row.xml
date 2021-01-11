@@ -24,6 +24,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layouthome"
             android:layout_width="344dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -78,16 +79,6 @@
                 app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-            <!--- <TextView
-            android:id="@+id/IdMySalary"
-            android:layout_width="136dp"
-            android:layout_height="42dp"
-            android:gravity="center"
-            android:hint="Salary"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:layout_editor_absoluteX="135dp" />
-
-         -->
 
             <TextView
                 android:id="@+id/textView2"

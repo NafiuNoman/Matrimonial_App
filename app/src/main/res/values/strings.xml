@@ -11,10 +11,6 @@
     <string name="TxtRegisterUser">REGISTER USER</string>
 
 
-
-
-
-
     <string-array name="Religions">
 
         <item>Islam</item>
@@ -45,13 +41,10 @@
     </string-array>
 
 
-
     <string-array name="physicalCondition">
         <item>Normal</item>
         <item>Physically Challenged</item>
     </string-array>
-
-
 
 
     <string-array name="workStatus">

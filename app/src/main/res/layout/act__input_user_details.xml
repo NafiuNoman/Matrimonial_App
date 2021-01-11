@@ -40,18 +40,17 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="20dp"
             app:boxStrokeColor="#213EDA"
             app:helperText="*you know that"
-            app:helperTextEnabled="true"
 
+            app:helperTextEnabled="true"
             app:helperTextTextColor="#A474FA"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/IdInputCreator"
-            app:startIconDrawable="@drawable/ic_wc"
 
-            >
+            app:layout_constraintTop_toBottomOf="@+id/IdInputImage"
+            app:startIconDrawable="@drawable/ic_wc">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -250,12 +249,15 @@
             style="@style/Widget.MaterialComponents.Button.Icon"
             android:layout_width="183dp"
             android:layout_height="51dp"
+            android:layout_marginTop="20dp"
             android:onClick="sendToRealDatabase"
             android:text="Save"
             app:icon="@drawable/ic_save"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.429"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/IdInputBrowsePic" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout11" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout9"
@@ -298,22 +300,12 @@
             android:layout_height="200dp"
             android:layout_marginTop="20dp"
             android:onClick="ImageViewClicked"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout11"
             android:src="@drawable/ic_user"
+            app:civ_border_color="#F44336"
             app:civ_border_width="3dp"
-            app:civ_border_color="#F44336"/>
-
-        <Button
-            android:id="@+id/IdInputBrowsePic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Browse"
-            android:onClick="SendToStorage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/IdInputImage" />
+            app:layout_constraintTop_toBottomOf="@+id/IdInputCreator" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

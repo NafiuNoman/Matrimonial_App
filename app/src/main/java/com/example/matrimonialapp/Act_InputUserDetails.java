@@ -88,7 +88,7 @@ public class Act_InputUserDetails extends AppCompatActivity {
         setContentView(R.layout.act__input_user_details);
 
         profilePic = findViewById(R.id.IdInputImage);
-        browsBtn = findViewById(R.id.IdInputBrowsePic);
+//        browsBtn = findViewById(R.id.IdInputBrowsePic);
         name = findViewById(R.id.IdInputName);
         creator = findViewById(R.id.IdInputCreator);
 //        dob = findViewById(R.id.IdInputDOB);
@@ -258,6 +258,7 @@ public class Act_InputUserDetails extends AppCompatActivity {
                 bitmap = BitmapFactory.decodeStream(inputStream);
 
                 profilePic.setImageBitmap(bitmap);
+                SendToStorage();
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -266,7 +267,7 @@ public class Act_InputUserDetails extends AppCompatActivity {
 
     }
 
-    public void SendToStorage(View view) {
+    public void SendToStorage() {
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
          final StorageReference uploder =  storage.getReference().child("user"+key);

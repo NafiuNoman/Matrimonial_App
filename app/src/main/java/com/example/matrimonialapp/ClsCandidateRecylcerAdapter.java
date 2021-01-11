@@ -1,5 +1,6 @@
 package com.example.matrimonialapp;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.util.Log;
@@ -51,6 +52,8 @@ public class ClsCandidateRecylcerAdapter extends FirebaseRecyclerAdapter<ClsUser
                         }
         });
 
+
+
         holder.love.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,7 +73,21 @@ public class ClsCandidateRecylcerAdapter extends FirebaseRecyclerAdapter<ClsUser
             }
         });
 
-        Log.d("Adapter: ","onBindViewHolder");
+        holder.layouthome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(holder.layouthome.getContext(), "ok its ok", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(holder.layouthome.getContext(),Act_InfoDisplay.class);
+                Toast.makeText(holder.layouthome.getContext(), "oooooo", Toast.LENGTH_SHORT).show();
+                intent.putExtra("ObjInfo",model);
+                holder.layouthome.getContext().startActivity(intent);
+
+            }
+        });
+
+
+
 
 
 
@@ -94,7 +111,7 @@ public class ClsCandidateRecylcerAdapter extends FirebaseRecyclerAdapter<ClsUser
 
         TextView name,age,religion;
         CircleImageView image;
-        ConstraintLayout layout;
+        ConstraintLayout layout,layouthome;
         ImageView love;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -106,6 +123,9 @@ public class ClsCandidateRecylcerAdapter extends FirebaseRecyclerAdapter<ClsUser
             image=itemView.findViewById(R.id.IdMyPropic);
             layout = itemView.findViewById(R.id.IdConstrainMyROw);
             love = itemView.findViewById(R.id.IdLove);
+
+            layouthome = itemView.findViewById(R.id.layouthome);
+
             Log.d("Adapter: ","RecyclerView.ViewHolder");
 
 

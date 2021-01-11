@@ -1,6 +1,8 @@
 package com.example.matrimonialapp;
 
-public class ClsUserDetails {
+import java.io.Serializable;
+
+public class ClsUserDetails implements Serializable {
 
 String creator,name,gender,age,dateOfBirth,maritalStatus,
         religion,height,physicalStatus,livingStatus,income,
