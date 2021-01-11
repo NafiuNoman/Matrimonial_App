@@ -1,9 +1,12 @@
 package com.example.matrimonialapp;
 
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +27,9 @@ public class ClsCandidateRecylcerAdapter extends FirebaseRecyclerAdapter<ClsUser
      *
      * @param options
      */
+
+    boolean touch = true;
+
     public ClsCandidateRecylcerAdapter(@NonNull FirebaseRecyclerOptions<ClsUserDetails> options) {
         super(options);
 
@@ -43,6 +49,25 @@ public class ClsCandidateRecylcerAdapter extends FirebaseRecyclerAdapter<ClsUser
 
                 Toast.makeText(holder.image.getContext(), "Name"+model.getName(), Toast.LENGTH_SHORT).show();
                         }
+        });
+
+        holder.love.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(touch == true)
+                {
+                    holder.love.setColorFilter(Color.RED);
+                    touch=false;
+                }
+                else if(touch==false)
+                {
+                    holder.love.setColorFilter(Color.WHITE);
+                    touch=true;
+
+                }
+
+            }
         });
 
         Log.d("Adapter: ","onBindViewHolder");
@@ -70,6 +95,7 @@ public class ClsCandidateRecylcerAdapter extends FirebaseRecyclerAdapter<ClsUser
         TextView name,age,religion;
         CircleImageView image;
         ConstraintLayout layout;
+        ImageView love;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -79,10 +105,12 @@ public class ClsCandidateRecylcerAdapter extends FirebaseRecyclerAdapter<ClsUser
             religion = itemView.findViewById(R.id.IdMyReligion);
             image=itemView.findViewById(R.id.IdMyPropic);
             layout = itemView.findViewById(R.id.IdConstrainMyROw);
-
+            love = itemView.findViewById(R.id.IdLove);
             Log.d("Adapter: ","RecyclerView.ViewHolder");
 
 
         }
+
+
     }
 }

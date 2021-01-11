@@ -111,6 +111,16 @@
                 app:layout_constraintStart_toEndOf="@+id/IdMyAge"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
+            <ImageView
+                android:id="@+id/IdLove"
+                android:layout_width="44dp"
+                android:layout_height="40dp"
+
+                android:src="@drawable/favorite2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/IdMyName" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
