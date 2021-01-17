@@ -8,38 +8,48 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class Act_InfoDisplay extends AppCompatActivity {
 
-    TextView addressDisplay;
-    ProgressBar progressBar;
+    TextView name,age,religion,living;
+    CircleImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nfo_display);
 
-        addressDisplay = findViewById(R.id.IdDisplayTextViewPer);
-        progressBar = findViewById(R.id.progressBar);
+        name = findViewById(R.id.IdShowName);
+        age = findViewById(R.id.IdShowAge);
+        religion = findViewById(R.id.IdShowReligion);
+        living = findViewById(R.id.IdShowLiving);
+        imageView =findViewById(R.id.IdShowImage);
 
 
         ClsUserDetails obj = (ClsUserDetails) getIntent().getSerializableExtra("ObjInfo");
 
-//        obj.getpAddress()
+        name.setText(obj.getName());
+        age.setText(obj.getAge());
+        religion.setText(obj.getReligion());
+        living.setText(obj.getLivingStatus());
 
-        addressDisplay.setText(obj.getpAddress());
-
-    }
-
-    public void taptap(View view) {
-
-        if(progressBar.isShown())
-        {
-            progressBar.setVisibility(View.INVISIBLE);
-        }
-        else
-        {
-            progressBar.setVisibility(View.VISIBLE);
-        }
+        Glide.with(name.getContext()).load(obj.getPictureUrl()).into(imageView);
 
     }
+
+//    public void taptap(View view) {
+//
+//        if(progressBar.isShown())
+//        {
+//            progressBar.setVisibility(View.INVISIBLE);
+//        }
+//        else
+//        {
+//            progressBar.setVisibility(View.VISIBLE);
+//        }
+//
+//    }
 }

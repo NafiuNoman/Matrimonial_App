@@ -76,6 +76,7 @@ public class ClsCandidateRecylcerAdapter extends FirebaseRecyclerAdapter<ClsUser
         holder.layouthome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Toast.makeText(holder.layouthome.getContext(), "ok its ok", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(holder.layouthome.getContext(),Act_InfoDisplay.class);
